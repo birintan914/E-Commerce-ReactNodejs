@@ -1,4 +1,4 @@
-.signup-container {
+.container {
     width: 350px;
     margin: auto;
     display: flex;
@@ -11,7 +11,7 @@
     border-radius: 10px;
 
 }
-.signup-container h1 {
+.container h1 {
     margin-top: 25px;
 }
 
@@ -27,7 +27,7 @@
     border-radius: 10px;
 }
 
-.signup-button {
+.button {
     height: 45px;
     font-size: 1.25rem;
     border: 1px solid black;

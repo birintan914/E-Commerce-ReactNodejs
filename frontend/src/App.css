@@ -3,3 +3,42 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.container {
+  width: 350px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 1.15rem;
+  border: 2px solid darkgray;
+  padding: 0px 50px;
+  margin-top: 10%;
+  border-radius: 10px;
+
+}
+.container h1 {
+  margin-top: 25px;
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+}
+.inputBox input{
+  height: 30px;
+  margin-top: 3px;
+  padding: 10px;
+  border: 2px solid darkgray;
+  border-radius: 10px;
+}
+
+.button {
+  height: 45px;
+  font-size: 1.25rem;
+  border: 1px solid black;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  border-radius: 50px;
+  cursor: pointer;
+}

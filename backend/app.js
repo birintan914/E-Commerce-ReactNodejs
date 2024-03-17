@@ -1,9 +1,11 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require("cors")
 const app = express()
 const User = require("./db/User")
 require("./db/config")
 
+// Moves to config
 const connectDB = async ()=>{
     mongoose.connect("mongodb://localhost:27017/e-comm")
     /*  SCHEMA/MODEL:
@@ -20,9 +22,32 @@ const connectDB = async ()=>{
     const data = await product.find();
     console.warn(data);
 }
-
+app.use(cors());
+app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send("<h1>app.js is working...</h1>")
+    res.send("<h1>app.js is working... </h1>")
 })
+app.post("/register", async (req, res) => {
+    let user = new User(req.body);
+    let result = await user.save();
+    result = result.toObject();
+    delete result.password;
+    res.send(result);
+})
+app.post("/login", async (req, res) => {
+    if (req.body.email && req.body.password) {
+        let user = await User.findOne(req.body).select("-password"); //retrieves everything but the password field
+        if (user) {
+            res.send(user);
+        } else {
+            res.send({result: "Error: User not found"})
+        }
+    } else {
+        res.send({result: "Error: Email and Password required"})
+    }
+})
+
+
+
 app.listen(5000)

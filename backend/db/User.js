@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const schema = mongoose.Schema();
+const schema = mongoose.Schema;
 /*  SCHEMA/MODEL:
     - a schema represents the shape of data you want to fetch/create
     - leaving the schema blank means that you want to get all attributes of a collection (id, name, place)
