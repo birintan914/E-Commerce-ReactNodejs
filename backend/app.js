@@ -1,6 +1,8 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
+const User = require("./db/User")
+require("./db/config")
 
 const connectDB = async ()=>{
     mongoose.connect("mongodb://localhost:27017/e-comm")
