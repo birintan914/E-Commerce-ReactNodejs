@@ -27,7 +27,11 @@ const Login = ()=> {
     }
 
     return (
-        <div className="container">
+        <div className="container" onKeyDown={(e) => {
+            if(e.code == 'Enter') {
+                handleLogin();
+            }
+        }}>
             <h1>Login</h1>
             <div className="inputBox">
                 <label htmlFor="email">Enter Email</label>
@@ -39,9 +43,7 @@ const Login = ()=> {
                 <input type="password" id="password" placeholder='Password' value={password}
                 onChange={(e) => setPassword(e.target.value)}/>
             </div>
-            <button className="button" onClick={handleLogin}>Submit</button>
-            
-            
+            <button type="submit" className="button" onClick={handleLogin}>Submit</button>
         </div>
     )
 }

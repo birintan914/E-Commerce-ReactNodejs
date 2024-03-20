@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import {Link, useNavigate} from 'react-router-dom'
 import './navbar.css'
+import '../App.css'
 
 const Navbar = () => {
   const auth = localStorage.getItem('user');
@@ -12,20 +13,19 @@ const Navbar = () => {
 
   return (
     <div>
-        <ul className="nav-ul">
-            <li><Link to='/'>Products</Link></li>
-            <li><Link to='/add'>Add Products</Link></li>
-            <li><Link to='/update'>Update Products</Link></li>
-            <li><Link to='/profile'>Profile</Link></li>
             {auth ? 
-            <li><Link to='/signup' onClick={logout}>Logout</Link></li> : 
-            <>
-            <li><Link to='/signup'>Sign Up</Link></li>
-            <li><Link to='/login'>Login</Link></li> 
-            </>
+              <ul className="nav-ul left">
+                <li><Link to='/'>Products</Link></li>
+                <li><Link to='/add-product'>Add Products</Link></li>
+                <li><Link to='/update'>Update Products</Link></li>
+                <li><Link to='/profile'>Profile</Link></li>
+                <li><Link to='/signup' onClick={logout}>Logout {JSON.parse(auth).name}</Link></li>  
+              </ul> :
+              <ul className="nav-ul right">
+                  <li><Link to='/signup'>Sign Up</Link></li>
+                  <li><Link to='/login'>Login</Link></li> 
+              </ul>
             }
-            {/* <li>{auth ? <Link to='/signup' onClick={logout}>Logout</Link> : <Link to='/signup'>Sign Up</Link>}</li> */}
-        </ul>
     </div>
   )
 }
